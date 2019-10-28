@@ -6,7 +6,7 @@
 /*   By: wtodd <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 09:30:06 by wtodd             #+#    #+#             */
-/*   Updated: 2019/10/02 13:08:05 by wtodd            ###   ########.fr       */
+/*   Updated: 2019/10/25 14:23:10 by wtodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,10 @@ int					ft_digitnumber(int n);
 int					ft_strword(char const *str, char c);
 size_t				ft_adr(const char *s, char c, int i);
 t_list				*ft_lstnew(void const *content, size_t content_size);
+void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
+void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void				ft_lstadd(t_list **alst, t_list *new);
+void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 #endif

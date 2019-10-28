@@ -6,7 +6,7 @@
 #    By: wtodd <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/10 09:57:08 by wtodd             #+#    #+#              #
-#    Updated: 2019/09/25 10:10:27 by wtodd            ###   ########.fr        #
+#    Updated: 2019/10/25 14:23:31 by wtodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,16 +69,23 @@ SRC = ft_adr.c\
 	 ft_strtrim.c\
 	 ft_strword.c\
 	 ft_tolower.c\
-	 ft_toupper.c
+	 ft_toupper.c\
+	ft_lstdelone.c\
+	ft_lstdel.c\
+	ft_lstadd.c\
+	ft_lstiter.c\
+	ft_lstmap.c
 
 OBJ = $(SRC:.c=.o) 
 
-INC = ./ 
+INC = ./
+
+%.o: %.c
+	gcc -Wall -Wextra -Werror -I $(INC) -o $@ -c $<
 
 all: $(NAME)
 	
-$(NAME): $(SRC) libft.h
-	gcc -c -Wall -Wextra -Werror $(SRC) -I $(INC)
+$(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
