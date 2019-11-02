@@ -20,7 +20,6 @@ char	*chek_str(char *str, char **line)
 		{
 			*line = ft_strdup(str);
 			ft_bzero(str, ft_strlen(str));
-			//ft_strdel(&str);
 		}
 	}
 	else
@@ -35,7 +34,7 @@ int		get_line(const int fd, char **line, char **ost)
 	char		*p;
 	char		*tmp;
 
-	if (fd < 0 || line == NULL || fd > 10240 ||
+	if (fd < 0 || !line || fd > 10240 ||
 			read(fd, NULL, 0) == -1 || BUFF_SIZE <= 0)
 		return (-1);
 	p = chek_str(*ost, line);
@@ -71,9 +70,6 @@ int	get_next_line(int fd, char **line)
 	static gnl *head;
 	gnl *tmp;
 
-	if (fd < 0 || line == NULL || fd > 10240 ||
-			read(fd, NULL, 0) == -1 || BUFF_SIZE <= 0)
-		return (-1);
 	if (head == NULL)
 		head = new_lst(fd);
 	tmp = head;
@@ -83,25 +79,25 @@ int	get_next_line(int fd, char **line)
 			tmp->next = new_lst(fd);
 		tmp = tmp->next;
 	}
-	return (get_line(tmp->fd, line, &tmp->ost));
+	return (get_line(tmp->fd, line, &head->ost));
 }
 
-int		main(void)
+/*int		main(void)
 {
 	int		fd1;
-//	int fd2;
+	int fd2;
 	char	*line;
 	int count;
 
 	count = 0;
 	fd1 = open("1.txt", O_RDONLY);
-//	fd2 = open("2.txt", O_RDONLY);
+	fd2 = open("2.txt", O_RDONLY);
 	while (get_next_line(fd1, &line) && count < 3)
 	{
 		printf("%s\n", line);
 		count++;
 	}
-/*	while (get_next_line(fd2, &line) && count < 6)
+	while (get_next_line(fd2, &line) && count < 6)
 	{
 		printf("%s\n", line);
 		count++;
@@ -112,7 +108,7 @@ int		main(void)
 		count++;
 	}
 
-*/
+
 		return (0);
 }
-
+*/
