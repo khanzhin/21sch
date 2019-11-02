@@ -1,8 +1,23 @@
+<<<<<<< HEAD
+=======
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wtodd <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/30 11:01:20 by wtodd             #+#    #+#             */
+/*   Updated: 2019/10/22 16:57:51 by wtodd            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+>>>>>>> 8cde57745f28dbfa976e0436c22b0a6c4e512ace
 #include "get_next_line.h"
 #include <fcntl.h>
 #include <stdio.h>
 
-char	*chek_str(char *str, char **line)
+static	char	*chek_str(char *str, char **line)
 {
 	char *p;
 
@@ -19,8 +34,12 @@ char	*chek_str(char *str, char **line)
 		else
 		{
 			*line = ft_strdup(str);
+<<<<<<< HEAD
 			ft_bzero(str, ft_strlen(str));
 			//ft_strdel(&str);
+=======
+			ft_strclr(str);
+>>>>>>> 8cde57745f28dbfa976e0436c22b0a6c4e512ace
 		}
 	}
 	else
@@ -28,30 +47,59 @@ char	*chek_str(char *str, char **line)
 	return (p);
 }
 
+<<<<<<< HEAD
 int		get_line(const int fd, char **line, char **ost)
+=======
+static void		find_n(char *p, char **str)
+{
+	char *tmp;
+
+	*p = '\0';
+	p++;
+	tmp = *str;
+	*str = ft_strdup(p);
+	free(tmp);
+}
+
+int				get_next_line(const int fd, char **line)
+>>>>>>> 8cde57745f28dbfa976e0436c22b0a6c4e512ace
 {
 	char		buf[BUFF_SIZE + 1];
 	int			d;
 	char		*p;
 	char		*tmp;
 
+<<<<<<< HEAD
 	if (fd < 0 || line == NULL || fd > 10240 ||
 			read(fd, NULL, 0) == -1 || BUFF_SIZE <= 0)
 		return (-1);
 	p = chek_str(*ost, line);
+=======
+	if (fd < 0 || !line || fd > 10240 ||
+			read(fd, buf, 0) == -1 || BUFF_SIZE < 1)
+		return (-1);
+	d = 1;
+	p = chek_str(str, line);
+>>>>>>> 8cde57745f28dbfa976e0436c22b0a6c4e512ace
 	while (!p && (d = read(fd, buf, BUFF_SIZE)))
 	{
 		buf[d] = '\0';
 		if ((p = ft_strchr(buf, '\n')))
+<<<<<<< HEAD
 		{
 			*p = '\0';
 			p++;
 			*ost = ft_strdup(p);
 		}
+=======
+			find_n(p, &str);
+>>>>>>> 8cde57745f28dbfa976e0436c22b0a6c4e512ace
 		tmp = *line;
-		*line = ft_strjoin(*line, buf);
+		if (!(*line = ft_strjoin(*line, buf)) || d < 0)
+			return (-1);
 		free(tmp);
 	}
+<<<<<<< HEAD
 	return (d || ft_strlen(*line)) ? 1 : 0;
 }
 
@@ -84,6 +132,9 @@ int	get_next_line(int fd, char **line)
 		tmp = tmp->next;
 	}
 	return (get_line(tmp->fd, line, &tmp->ost));
+=======
+	return ((d || ft_strlen(*line)) ? 1 : 0);
+>>>>>>> 8cde57745f28dbfa976e0436c22b0a6c4e512ace
 }
 
 int		main(void)
