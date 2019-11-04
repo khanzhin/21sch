@@ -42,12 +42,9 @@ t_tetro *ft_str_to_int(int fd, char *line)
 		{
 			y = -1; //y = 0; wtf ne 0?
 			k = 0;
-			//ft_pe4at(coordinates);
 			head == NULL ? head = ft_create_node(ft_chr_min_x_y(coordinates)) : append(head, ft_chr_min_x_y(coordinates));
-			//ft_print_result(&(head)->ca);
 		}
 	}
-
 	return(head);
 }
 
@@ -136,16 +133,22 @@ t_tetro *ft_create_node(int *nb)
 	list = (t_tetro *) malloc(sizeof(t_tetro));
 	if (list == NULL)
 		exit(EXIT_FAILURE);
-	list->tetro_id = nb;
+
+	list->tetro_id = (int *)malloc(sizeof(int) * 8);
+	while (i < 8)
+	{
+		list->tetro_id[i] = nb[i];
+		i++;
+	}
 	list->letter = 'A';
 	list->next = NULL;
+
+	i = 0;
 	while (i < 8)
 	{
 		ft_print_result2(list->tetro_id[i++]);
-		write(1, " ", 1);
+		write(1, "-", 1);
 	}
-	//ft_print_result(&list->ca);
-	//write(1, &list->ca, 1);
 	return (list);
 }
 
@@ -156,33 +159,15 @@ t_tetro *append(t_tetro *head, int *nb)
 	int i;
 
 	i = 1;
-	head_ptr = head; // НАДО ЗВЕЗДУ ПЕРЕД ГОЛОВОЙ
+	head_ptr = head;
 	while (head_ptr->next != NULL)
 	{
 		head_ptr = head_ptr->next;
 		i++;
 	}
-
-	int k = 0;
-	write(1, "\n", 1);
-	while (k < 8)
-	{
-		ft_print_result2(head->tetro_id[k++]);
-		write(1, "=", 1);
-	}
-
 	list = ft_create_node(nb);
-	list->letter = (int)list->letter + i; // TO FIX
+	list->letter = (int)list->letter + i;
 	head_ptr->next = list;
 	ft_print_result(&list->letter);
-
-//	int k = 0;
-//	write(1, "\n", 1);
-//		while (k < 8)
-//	{
-//	ft_print_result2(head->tetro_id[k++]);
-//	write(1, " ", 1);
-//	}
-
 	return(head);
 }

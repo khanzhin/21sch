@@ -76,22 +76,20 @@ void ft_place_figure(char **map_zero, t_tetro *head)
 
 	head_ptr = head;
 	k = 0;
-//	i = head_ptr->tetro_id[k];
-	//printf("\n id %d\n", head_ptr->tetro_id);
-
-//	j = head_ptr->tetro_id[k + 1];
-	i = 0;
-	j = 0;
-	map_zero[i][j] = (int) head_ptr->letter;
-	//printf("\n\t%d %d", i, j);
+	while (k < 7) {
+		j = head_ptr->tetro_id[k];
+		i = head_ptr->tetro_id[k + 1];
+		map_zero[i][j] = head_ptr->letter;
+		k+=2;
+	}
 //	while (k < 8)
 //	{
 //	ft_print_result2((head_ptr)->tetro_id[k++]);
 //	write(1, " ", 1);
 //	}
-	for (i = 0; i < 3; i++)
+	for (i = 0; i < 4; i++)
 	{
-		for (j = 0; j < 3; j++)
+		for (j = 0; j < 4; j++)
 		{
 			printf("\t%c ", map_zero[i][j]);
 		}

@@ -79,6 +79,9 @@
       <workItem from="1572438433579" duration="1556000" />
       <workItem from="1572440003274" duration="3829000" />
       <workItem from="1572510264614" duration="22075000" />
+      <workItem from="1572691225860" duration="3770000" />
+      <workItem from="1572856245458" duration="7309000" />
+      <workItem from="1572872850567" duration="5081000" />
     </task>
     <servers />
   </component>
@@ -97,5 +100,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="(int(*)[8])head-&gt;tetro_id" language="ObjectiveC" />
+        <watch expression="(int(*)[8])head-&gt;next-&gt;tetro_id" language="ObjectiveC" />
+        <watch expression="(t_tetro(*)[1])head" language="ObjectiveC" />
+        <watch expression="(char)head-&gt;letter" language="ObjectiveC" />
+        <watch expression="(char)head-&gt;next-&gt;letter" language="ObjectiveC" />
+        <watch expression="(int(*)[8])head-&gt;next-&gt;tetro_id[5]" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
