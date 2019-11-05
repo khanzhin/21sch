@@ -69,30 +69,37 @@ char **ft_map_create(int map_size)
 
 void ft_place_figure(char **map_zero, t_tetro *head)
 {
-	int i;
-	int j;
+	int x = 0;
+	int y;
 	int k;
 	t_tetro *head_ptr;
+	int size_line;
+	printf("\ndl %d\n", size_line = ft_strlen(map_zero[x]));
 
 	head_ptr = head;
 	k = 0;
 	while (k < 7) {
-		j = head_ptr->tetro_id[k];
-		i = head_ptr->tetro_id[k + 1];
-		map_zero[i][j] = head_ptr->letter;
+		x = head_ptr->tetro_id[k];
+		y = head_ptr->tetro_id[k + 1];
+		map_zero[y][x+2] = head_ptr->letter;
 		k+=2;
 	}
-//	while (k < 8)
-//	{
-//	ft_print_result2((head_ptr)->tetro_id[k++]);
-//	write(1, " ", 1);
-//	}
-	for (i = 0; i < 4; i++)
+	for (y = 0; y < 4; y++)
 	{
-		for (j = 0; j < 4; j++)
+		for (x = 0; x < 4; x++)
 		{
-			printf("\t%c ", map_zero[i][j]);
+			printf("\t%c ", map_zero[y][x]);
 		}
 		printf("\n");
 	}
+
+}
+
+ft_tyty(map_zero, x, y, head, size_line)
+{
+	int i;
+while (map_zero[size_line][] != size_line)
+{
+	
+}
 }

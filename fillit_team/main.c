@@ -36,12 +36,12 @@ int		main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	head = ft_str_to_int(fd, line);
 
-	write(1, "\n", 1);
-	int i = 0;
-	while (i < 8) {
-		ft_print_result2(head->next->next->tetro_id[i++]);
-		write(1, "=", 1);
-	}
+//	write(1, "\n", 1);
+//	int i = 0;
+//	while (i < 8) {
+//		ft_print_result2(head->tetro_id[i++]);
+//		write(1, "=", 1);
+//	}
 
 	close(fd);
 	ft_map_size(*head);

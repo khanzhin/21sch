@@ -133,8 +133,6 @@ t_tetro *ft_create_node(int *nb)
 	list = (t_tetro *) malloc(sizeof(t_tetro));
 	if (list == NULL)
 		exit(EXIT_FAILURE);
-
-	list->tetro_id = (int *)malloc(sizeof(int) * 8);
 	while (i < 8)
 	{
 		list->tetro_id[i] = nb[i];
@@ -166,7 +164,7 @@ t_tetro *append(t_tetro *head, int *nb)
 		i++;
 	}
 	list = ft_create_node(nb);
-	list->letter = (int)list->letter + i;
+	list->letter = list->letter + i;
 	head_ptr->next = list;
 	ft_print_result(&list->letter);
 	return(head);

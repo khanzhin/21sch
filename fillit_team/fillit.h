@@ -17,7 +17,7 @@
 
 typedef struct		s_tetro
 {
-	int				*tetro_id;
+	int				tetro_id[8];
 	char			letter;
 	struct s_tetro	*next;
 }					t_tetro;
