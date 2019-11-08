@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+
+#include "libft.h"
+
+void			ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+{
+	t_list *lst;
+
+	lst = *alst;
+	while (lst)
+	{
+		del(lst->content, lst->content_size);
+		free(lst);
+		lst = lst->next;
+	}
+	*alst = NULL;
+=======
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -29,4 +46,5 @@ void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 		}
 		*alst = NULL;
 	}
+>>>>>>> 8cde57745f28dbfa976e0436c22b0a6c4e512ace
 }
