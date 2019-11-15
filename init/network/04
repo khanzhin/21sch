@@ -1,0 +1,1 @@
+netstat -r | grep def | head -1 | awk '{print $2}'

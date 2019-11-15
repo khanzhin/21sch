@@ -1,0 +1,17 @@
+dig slash16.org +short  //calculate ip slash16.org
+
+13.33.242.215
+13.33.242.74
+13.33.242.162
+13.33.242.31
+
+curl -s https://ipinfo.io/13.33.242.31 | grep "org" //search provider slash16.org
+
+"org": "AS16509 Amazon.com, Inc.", //provider
+
+or
+
+whois 13.33.242.74
+
+Amazon Technologies Inc. AT-88-Z (NET-13-32-0-0-1) 13.32.0.0 - 13.47.255.255
+Amazon.com, Inc. AMAZO-CF (NET-13-32-0-0-2) 13.32.0.0 - 13.33.255.255
