@@ -4,4 +4,4 @@ git clone
 
 make re
 
-./fillit tetro.txt
+./fillit tetro.txt or 1234.txt
