@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-void			ft_lstiter(t_list *lst, void (*f)(t_list *elem))
-{
-	while (lst)
-	{
-		f(lst);
-		lst = lst->next;
-=======
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -30,6 +22,5 @@ void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 			lst = lst->next;
 		}
 		f(lst);
->>>>>>> 8cde57745f28dbfa976e0436c22b0a6c4e512ace
 	}
 }

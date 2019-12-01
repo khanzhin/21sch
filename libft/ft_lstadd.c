@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-
-#include "libft.h"
-
-void			ft_lstadd(t_list **alst, t_list *new)
-{
-	new->next = (*alst);
-	*alst = new;
-=======
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -28,5 +19,4 @@ void	ft_lstadd(t_list **alst, t_list *new)
 		new->next = *alst;
 		*alst = new;
 	}
->>>>>>> 8cde57745f28dbfa976e0436c22b0a6c4e512ace
 }
