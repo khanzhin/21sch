@@ -12,3 +12,6 @@ sleep 7
 docker logs wtodd | grep "token" | tail -n 1 | awk '{print$1}' | pbcopy
 
 rm .for_run_docker
+
+echo "\033[4;36mTeamSpeak Server UP\033[0m"
+echo "\033[4;36mToken in .for_run_docker\033[0m"
